@@ -1,6 +1,4 @@
 package org.example;
-
-import Interfaces.MyList;
 import java.util.Iterator;
 
 public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {

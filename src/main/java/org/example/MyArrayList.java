@@ -1,6 +1,6 @@
 package org.example;
 
-import Interfaces.MyList;
+
 import java.util.Iterator;
 
 public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
