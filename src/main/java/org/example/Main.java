@@ -12,12 +12,12 @@ public class Main {
         myArrayList.add(2);
         myArrayList.add(1);
 
-        System.out.println("List pre sort");
+        System.out.println("List before sorting");
         for (int i = 0; i < myArrayList.Size(); i++) {
             System.out.println(myArrayList.get(i));
         }
         myArrayList.sort();
-        System.out.println("List post sort");
+        System.out.println("List after sort");
         for (int i = 0; i < myArrayList.Size(); i++) {
             System.out.println(myArrayList.get(i));
         }
@@ -42,12 +42,12 @@ public class Main {
         myLinkedList.add(1);
         new Stack<>();
 
-        System.out.println("List pre sort");
+        System.out.println("List before sorting");
         for (int i = 0; i < myLinkedList.Size(); i++) {
             System.out.println(myLinkedList.get(i));
         }
         myLinkedList.sort();
-        System.out.println("List post sort");
+        System.out.println("List after sort");
         for (int i = 0; i < myLinkedList.Size(); i++) {
             System.out.println(myLinkedList.get(i));
         }
