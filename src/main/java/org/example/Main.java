@@ -78,8 +78,8 @@ public class Main {
         System.out.println("Popped element: " + myStack.pop());
         System.out.println("Peeked element: " + myStack.peek());
         System.out.println("Popped element: " + myStack.pop());
-        System.out.println("Check stack emptiness: " + myStack.isEmpty());
-        System.out.println("Check stack size: " + myStack.size());
+        System.out.println("Check stack is empty: " + myStack.isEmpty());
+        System.out.println("Stack size: " + myStack.size());
 /**
  *
  */
