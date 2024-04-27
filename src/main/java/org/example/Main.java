@@ -4,33 +4,33 @@ import java.util.ArrayList;
 import java.util.Stack;
 public class Main {
     public static void main(String[] args) {
-        MyArrayList myArrayList = new MyArrayList<>();
+        MyArrayList MyArrayList = new MyArrayList<>();
 
-        myArrayList.add(3);
-        myArrayList.add(2);
-        myArrayList.add(1);
-        myArrayList.add(5);
-        myArrayList.add(4);
+        MyArrayList.add(3);
+        MyArrayList.add(2);
+        MyArrayList.add(1);
+        MyArrayList.add(5);
+        MyArrayList.add(4);
 
         System.out.println("List before sorting");
-        for (int i = 0; i < myArrayList.Size(); i++) {
-            System.out.println(myArrayList.get(i));
+        for (int i = 0; i < MyArrayList.Size(); i++) {
+            System.out.println(MyArrayList.get(i));
         }
-        myArrayList.sort();
+        MyArrayList.sort();
         System.out.println("List after sorting");
-        for (int i = 0; i < myArrayList.Size(); i++) {
-            System.out.println(myArrayList.get(i));
+        for (int i = 0; i < MyArrayList.Size(); i++) {
+            System.out.println(MyArrayList.get(i));
         }
-        System.out.println("Value of index 3: " + myArrayList.get(3));
-        System.out.println("Size of an list: " + myArrayList.Size());
-        System.out.println("Vaule of index 0 before remove: " + myArrayList.get(0));
-        myArrayList.remove(0);
-        System.out.println("Vaule of index 0 after remove: " + myArrayList.get(0));
-        System.out.println("Size of an list: " + myArrayList.Size());
-        System.out.println("Vaule of index 2 before remove: " + myArrayList.get(2));
-        myArrayList.remove(2);
-        System.out.println("Vaule of index 2 after remove: " + myArrayList.get(2));
-        System.out.println("Size of an list: " + myArrayList.Size());
+        System.out.println("Value of index 3: " + MyArrayList.get(3));
+        System.out.println("Size of an list: " + MyArrayList.Size());
+        System.out.println("Vaule of index 0 before remove: " + MyArrayList.get(0));
+        MyArrayList.remove(0);
+        System.out.println("Vaule of index 0 after remove: " + MyArrayList.get(0));
+        System.out.println("Size of an list: " + MyArrayList.Size());
+        System.out.println("Vaule of index 2 before remove: " + MyArrayList.get(2));
+        MyArrayList.remove(2);
+        System.out.println("Vaule of index 2 after remove: " + MyArrayList.get(2));
+        System.out.println("Size of an list: " + MyArrayList.Size());
 /**
  *
  */
