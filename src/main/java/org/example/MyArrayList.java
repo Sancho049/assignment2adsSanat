@@ -8,11 +8,8 @@ import java.util.Iterator;
  * @param <T>
  */
 public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
-    // setting the initial capacity of each array that stores our list array, I made it 16 as multiple of power of 2 seemed right
     private static final int DEFAULT_CAPACITY = 16;
-    // array that stores our list array
     private Object[] array;
-    // current size of the list array, not to be confused with the capacity
     private int size;
 
     // constructor
@@ -40,7 +37,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public void set(int index, T item) {
-        // throwing out of bounds error in case of mis-input then setting element
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("Index out of bounds");
         array[index] = item;
@@ -53,12 +49,9 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public void add(int index, T item) {
-        // throwing out of bounds error in case of mis-input then adding element
         if (index < 0 || index > size)
             throw new IndexOutOfBoundsException("Index out of bounds");
-        // ensuring array can fit element
         ensureCapacity();
-        // shifting all elements that are after inserted one
         for (int i = size; i > index; i--) {
             array[i] = array[i - 1];
         }
@@ -72,7 +65,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public void addFirst(T item) {
-        // calling add with just 0 index
         add(0, item);
     }
 
@@ -82,7 +74,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public void addLast(T item) {
-        // calling add with just size index, which will be last
         add(size, item);
     }
 
@@ -93,7 +84,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public T get(int index) {
-        // throwing out of bounds error in case of mis-input then return element
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("Index out of bounds");
         return (T) array[index];
@@ -105,7 +95,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public T getFirst() {
-        // throwing out of bounds error in case it is empty then return 0 element
         if (size == 0)
             throw new IndexOutOfBoundsException("List is empty");
         return (T) array[0];
@@ -117,7 +106,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public T getLast() {
-        // throwing out of bounds error in case it is empty then return size-1 element
         if (size == 0)
             throw new IndexOutOfBoundsException("List is empty");
         return (T) array[size - 1];
@@ -129,7 +117,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public void remove(int index) {
-        // throwing out of bounds error in case of mis-input then remove element
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("Index out of bounds");
         // shifting all elements after removed element
@@ -144,7 +131,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public void removeFirst() {
-        // call remove at 0 element
         remove(0);
     }
 
@@ -153,7 +139,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public void removeLast() {
-        // call remove at size-1 element
         remove(size - 1);
     }
 
@@ -162,7 +147,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public void sort() {
-        // calling mergesort
         mergeSort(0, size-1);
     }
 
@@ -172,16 +156,11 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      * @param right
      */
     private void mergeSort(int left, int right) {
-        // recursive mergesort method
         if (left < right){
             int middle = left + (right - left) / 2;
 
-            // recursiveness, split and conquer
             mergeSort(left, middle);
             mergeSort(middle + 1, right);
-
-            // re-attach split parts will be called at the end after
-            // each mergeSort is split down to individual elements
             merge(left, middle, right);
         }
     }
@@ -239,7 +218,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public int indexOf(Object object) {
-        // search for Object and return index or -1 in case it is not there
         for (int i = 0; i < size; i++) {
             if (array[i].equals(object)) {
                 return i;
@@ -255,7 +233,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public int lastIndexOf(Object object) {
-        // same as above but in reverse
         for (int i = size - 1; i >= 0; i--) {
             if (array[i].equals(object)) {
                 return i;
@@ -271,7 +248,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public boolean exists(Object object) {
-        // use indexOf to get a bool answer
         return indexOf(object) != -1;
     }
 
