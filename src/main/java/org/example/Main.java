@@ -37,11 +37,11 @@ public class Main {
 
         MyLinkedList myLinkedList = new MyLinkedList<>();
 
-        myLinkedList.add(1);
-        myLinkedList.add(2);
         myLinkedList.add(3);
-        myLinkedList.add(4);
+        myLinkedList.add(2);
+        myLinkedList.add(1);
         myLinkedList.add(5);
+        myLinkedList.add(4);
         new Stack<>();
 
         System.out.println("List before sorting");
