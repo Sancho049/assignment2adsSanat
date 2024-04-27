@@ -12,7 +12,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
     private Object[] array;
     private int size;
 
-    // constructor
     public MyArrayList() {
         // creating array with our preset capacity
         array = new Object[DEFAULT_CAPACITY];
