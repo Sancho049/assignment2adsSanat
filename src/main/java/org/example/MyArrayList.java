@@ -3,6 +3,10 @@ package org.example;
 
 import java.util.Iterator;
 
+/**
+ *
+ * @param <T>
+ */
 public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
     // setting the initial capacity of each array that stores our list array, I made it 16 as multiple of power of 2 seemed right
     private static final int DEFAULT_CAPACITY = 16;
@@ -18,6 +22,10 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         size = 0;
     }
 
+    /**
+     *
+     * @param item
+     */
     @Override
     public void add(T item) {
         // checking if our array can fit element, then adding list element
@@ -25,6 +33,11 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         array[size++] = item;
     }
 
+    /**
+     *
+     * @param index
+     * @param item
+     */
     @Override
     public void set(int index, T item) {
         // throwing out of bounds error in case of mis-input then setting element
@@ -33,6 +46,11 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         array[index] = item;
     }
 
+    /**
+     *
+     * @param index
+     * @param item
+     */
     @Override
     public void add(int index, T item) {
         // throwing out of bounds error in case of mis-input then adding element
@@ -48,18 +66,31 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         size++;
     }
 
+    /**
+     *
+     * @param item
+     */
     @Override
     public void addFirst(T item) {
         // calling add with just 0 index
         add(0, item);
     }
 
+    /**
+     *
+     * @param item
+     */
     @Override
     public void addLast(T item) {
         // calling add with just size index, which will be last
         add(size, item);
     }
 
+    /**
+     *
+     * @param index
+     * @return
+     */
     @Override
     public T get(int index) {
         // throwing out of bounds error in case of mis-input then return element
@@ -68,6 +99,10 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         return (T) array[index];
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public T getFirst() {
         // throwing out of bounds error in case it is empty then return 0 element
@@ -76,6 +111,10 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         return (T) array[0];
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public T getLast() {
         // throwing out of bounds error in case it is empty then return size-1 element
@@ -84,6 +123,10 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         return (T) array[size - 1];
     }
 
+    /**
+     *
+     * @param index
+     */
     @Override
     public void remove(int index) {
         // throwing out of bounds error in case of mis-input then remove element
@@ -96,24 +139,38 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         size--;
     }
 
+    /**
+     *
+     */
     @Override
     public void removeFirst() {
         // call remove at 0 element
         remove(0);
     }
 
+    /**
+     *
+     */
     @Override
     public void removeLast() {
         // call remove at size-1 element
         remove(size - 1);
     }
 
+    /**
+     *
+     */
     @Override
     public void sort() {
         // calling mergesort
         mergeSort(0, size-1);
     }
 
+    /**
+     *
+     * @param left
+     * @param right
+     */
     private void mergeSort(int left, int right) {
         // recursive mergesort method
         if (left < right){
@@ -129,6 +186,12 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         }
     }
 
+    /**
+     *
+     * @param left
+     * @param middle
+     * @param right
+     */
     private void merge(int left, int middle, int right){
         int n1 = middle - left + 1;
         int n2 = right - middle;
@@ -169,6 +232,11 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         }
     }
 
+    /**
+     *
+     * @param object
+     * @return
+     */
     @Override
     public int indexOf(Object object) {
         // search for Object and return index or -1 in case it is not there
@@ -180,6 +248,11 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         return -1;
     }
 
+    /**
+     *
+     * @param object
+     * @return
+     */
     @Override
     public int lastIndexOf(Object object) {
         // same as above but in reverse
@@ -191,12 +264,21 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         return -1;
     }
 
+    /**
+     *
+     * @param object
+     * @return
+     */
     @Override
     public boolean exists(Object object) {
         // use indexOf to get a bool answer
         return indexOf(object) != -1;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Object[] toArray() {
         Object[] newArray = new Object[size];
@@ -204,17 +286,28 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         return newArray;
     }
 
+    /**
+     *
+     */
     @Override
     public void Clear() {
         array = new Object[DEFAULT_CAPACITY];
         size = 0;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int Size() {
         return size;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
@@ -225,6 +318,10 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
                 return currentIndex < size;
             }
 
+            /**
+             *
+             * @return
+             */
             @Override
             public T next() {
                 if (!hasNext()) {
@@ -235,6 +332,9 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         };
     }
 
+    /**
+     *
+     */
     private void ensureCapacity() {
         if (size == array.length) {
             int newCapacity = array.length * 2;
