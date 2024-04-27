@@ -103,7 +103,6 @@ public class Main {
         MyMinHeap myMinHeap = new MyMinHeap<>();
         System.out.println("Is the heap empty? " + myMinHeap.isEmpty());
 
-        // Insert elements
         myMinHeap.insert(3);
         myMinHeap.insert(10);
         myMinHeap.insert(1);
