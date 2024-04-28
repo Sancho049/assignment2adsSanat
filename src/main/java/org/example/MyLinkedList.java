@@ -169,19 +169,12 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
         if (head == null || head.next == null) {
             return head;
         }
-
-        // Split the list into two halves
         Node<T> middle = getMiddle(head);
         Node<T> nextOfMiddle = middle.next;
         middle.next = null;
-
-        // Apply mergeSort on left half
         Node<T> left = mergeSort(head);
 
-        // Apply mergeSort on right half
         Node<T> right = mergeSort(nextOfMiddle);
-
-        // Merge the sorted halves
         return merge(left, right);
     }
 

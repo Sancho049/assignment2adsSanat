@@ -1,5 +1,5 @@
 package org.example;
-
+import java.util.Arrays;
 
 import java.util.Iterator;
 
@@ -8,12 +8,11 @@ import java.util.Iterator;
  * @param <T>
  */
 public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
-    private static final int DEFAULT_CAPACITY = 16;
+    private static final int DEFAULT_CAPACITY = 10;
     private Object[] array;
     private int size;
 
     public MyArrayList() {
-        // creating array with our preset capacity
         array = new Object[DEFAULT_CAPACITY];
         size = 0;
     }
@@ -24,7 +23,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public void add(T item) {
-        // checking if our array can fit element, then adding list element
         ensureCapacity();
         array[size++] = item;
     }
@@ -94,8 +92,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public T getFirst() {
-        if (size == 0)
-            throw new IndexOutOfBoundsException("List is empty");
         return (T) array[0];
     }
 
@@ -105,8 +101,6 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public T getLast() {
-        if (size == 0)
-            throw new IndexOutOfBoundsException("List is empty");
         return (T) array[size - 1];
     }
 
@@ -146,70 +140,8 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
      */
     @Override
     public void sort() {
-        mergeSort(0, size-1);
+        Arrays.sort(array, 0, size);
     }
-
-    /**
-     *
-     * @param left
-     * @param right
-     */
-    private void mergeSort(int left, int right) {
-        if (left < right){
-            int middle = left + (right - left) / 2;
-
-            mergeSort(left, middle);
-            mergeSort(middle + 1, right);
-            merge(left, middle, right);
-        }
-    }
-
-    /**
-     *
-     * @param left
-     * @param middle
-     * @param right
-     */
-    private void merge(int left, int middle, int right){
-        int n1 = middle - left + 1;
-        int n2 = right - middle;
-
-        Object[] leftArray = new Object[n1];
-        Object[] rightArray = new Object[n2];
-
-        for (int i = 0; i < n1; ++i) {
-            leftArray[i] = array[left + i];
-        }
-        for (int j = 0; j < n2; ++j) {
-            rightArray[j] = array[middle + 1 + j];
-        }
-
-        int i = 0, j = 0;
-        int k = left;
-        while (i < n1 && j < n2) {
-            if (((T) leftArray[i]).compareTo((T) rightArray[j]) <= 0) {
-                array[k] = leftArray[i];
-                i++;
-            } else {
-                array[k] = rightArray[j];
-                j++;
-            }
-            k++;
-        }
-
-        while (i < n1) {
-            array[k] = leftArray[i];
-            i++;
-            k++;
-        }
-
-        while (j < n2) {
-            array[k] = rightArray[j];
-            j++;
-            k++;
-        }
-    }
-
     /**
      *
      * @param object

@@ -8,12 +8,13 @@ public class MyQueue<T extends Comparable<T>> implements Iterable<T> {
     }
 
     public void enqueue(T item) {
+
         list.addLast(item);
     }
 
     public T dequeue() {
         if (isEmpty()) {
-            throw new IndexOutOfBoundsException("Queue is empty");
+            return null;
         }
         T item = list.getFirst();
         list.removeFirst();

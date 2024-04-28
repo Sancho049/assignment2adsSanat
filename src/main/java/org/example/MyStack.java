@@ -16,7 +16,7 @@ public class MyStack<T extends Comparable<T>> implements Iterable<T> {
 
     public T pop() {
         if (isEmpty()) {
-            throw new IndexOutOfBoundsException("Stack is empty");
+            return null;
         }
         T item = list.getLast();
         list.removeLast();
@@ -25,7 +25,7 @@ public class MyStack<T extends Comparable<T>> implements Iterable<T> {
 
     public T peek() {
         if (isEmpty()) {
-            throw new IndexOutOfBoundsException("Stack is empty");
+            return null;
         }
         return list.getLast();
     }
