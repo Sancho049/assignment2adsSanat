@@ -24,46 +24,21 @@ exists(Object object): Checks whether an element exists in the list.
 toArray(): Returns an array of all elements of the list.
 clear(): Clears the list.
 size(): Returns the number of elements in the list.
-MyArrayList
 
+MyArrayList:
 MyArrayList - is an implementation of the MyList interface that uses an array to store elements.
 
-Using example:
-
-MyArrayList list = new MyArrayList<>(); list.add("Apple"); list.add("Banana"); String fruit = list.get(0); // Returns "Apple" list.remove(1); // Removes "Banana"
-
-MyLinkedList
-
+MyLinkedList:
 MyLinkedList - is an implementation of the MyList interface that uses a doubly linked list to store elements.
 
-Using example:
-
-MyLinkedList list = new MyLinkedList<>(); list.add("Apple"); list.addFirst("Banana"); String fruit = list.getFirst(); // Returns "Banana" list.removeLast(); // Removes "Apple"
-
-MyStack
-
+MyStack:
 MyStack - is a class that implements a stack data structure, using MyLinkedList to store elements.
 
-Using example(this example didn't use in Main class. If you want to use, just copy it):
-
-MyStack stack = new MyStack<>(); stack.push("Apple"); String fruit = stack.peek(); // Returns "Apple" without removing it fruit = stack.pop(); // Returns "Apple", removing it
-
-MyQueue
-
+MyQueue:
 MyQueue - is a class that implements a queue data structure, using MyLinkedList to store elements.
 
-Using example(this example didn't use in Main class. If you want to use, just copy it):
-
-MyQueue queue = new MyQueue<>(); queue.enqueue("Apple"); String fruit = queue.peek(); // Returns "Apple" without removing it fruit = queue.dequeue(); // Returns "Apple", removing it
-
-MyMinHeap
-
+MyMinHeap:
 MyMinHeap - is a class that implements a min-heap data structure, using MyArrayList to store elements.
 
-Using example(this example didn't use in Main class. If you want to use, just copy it):
-
-MyMinHeap minHeap = new MyMinHeap<>(); minHeap.add(10); minHeap.add(5); int min = minHeap.peek(); // Returns 5 without removing it min = minHeap.remove(); // Returns 5, removing it
-
-Main
-
+Main:
 Main - is a class containing a main method that can be used to test implementations of the above collections.
