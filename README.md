@@ -6,11 +6,11 @@ MyList - is an interface that defines basic operations such as adding, deleting,
 
 Methods:
 
-add(E item): Adds an element to the end of the list.
-set(int index, E item): Sets the element at the specified index.
-add(int index, E item): Adds an element at the specified index.
-addFirst(E item): Adds an element to the beginning of the list.
-addLast(E item): Adds an element to the end of the list.
+add(T item): Adds an element to the end of the list.
+set(int index, T item): Sets the element at the specified index.
+add(int index, T item): Adds an element at the specified index.
+addFirst(T item): Adds an element to the beginning of the list.
+addLast(T item): Adds an element to the end of the list.
 get(int index): Returns the element at the specified index.
 getFirst(): Returns the first element of the list.
 getLast(): Returns the last element of the list.
@@ -18,7 +18,7 @@ remove(int index): Removes the element at the specified index.
 removeFirst(): Removes the first element of the list.
 removeLast(): Removes the last element of the list.
 sort(): Sorts the list.
-indexOf(Object object): Returns the index of the first occurrence of the specified element.
+indexOf(): Returns the index of the first occurrence of the specified element.
 lastIndexOf(Object object): Returns the index of the last occurrence of the specified element.
 exists(Object object): Checks whether an element exists in the list.
 toArray(): Returns an array of all elements of the list.
